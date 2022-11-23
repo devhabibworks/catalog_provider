@@ -1,5 +1,5 @@
-import 'dart:math';
 import 'package:catalog_provider/provider/catalog_provider.dart';
+import 'package:catalog_provider/widgets/cataloge_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,6 +24,7 @@ class CatalogScreen extends StatelessWidget {
                   fontWeight: FontWeight.w600),
             ),
             centerTitle: true,
+            //this is the most amazi
           ),
           const SliverToBoxAdapter(
             child: SizedBox(
@@ -31,16 +32,11 @@ class CatalogScreen extends StatelessWidget {
             ),
           ),
           SliverList(
-              delegate: SliverChildBuilderDelegate(
-                  childCount: catalogProvider.products.length,
-                  (context, index) => Container(
-                        height: 100,
-                        color: Color.fromARGB(
-                            Random.secure().nextInt(255),
-                            Random.secure().nextInt(255),
-                            Random.secure().nextInt(255),
-                            Random.secure().nextInt(255)),
-                      )))
+            delegate: SliverChildBuilderDelegate(
+              childCount: catalogProvider.products.length,
+              (context, index) => CatalogList(index: index),
+            ),
+          )
         ],
       ),
     );

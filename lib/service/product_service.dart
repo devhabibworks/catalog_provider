@@ -9,7 +9,7 @@ class ProductService {
 
     //used to fech data from database in our example local data
     List<Map<String, dynamic>> fetchedData = await Future.delayed(
-        const Duration(seconds: 5), () => ConstantData.dataAsJson);
+        const Duration(seconds: 2), () => ConstantData.dataAsJson);
 
     //convert jsons to models
     for (var json in fetchedData) {
