@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class CatalogScreen extends StatelessWidget {
@@ -29,7 +28,7 @@ class CatalogScreen extends StatelessWidget {
           ),
           SliverList(
               delegate: SliverChildBuilderDelegate(
-                  childCount: 20,
+                  childCount: 100,
                   (context, index) => Container(
                         height: 100,
                         color: Color.fromARGB(
