@@ -1,11 +1,15 @@
 import 'dart:math';
+import 'package:catalog_provider/provider/catalog_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CatalogScreen extends StatelessWidget {
   const CatalogScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    CatalogProvider catalogProvider = Provider.of<CatalogProvider>(context);
+
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -28,7 +32,7 @@ class CatalogScreen extends StatelessWidget {
           ),
           SliverList(
               delegate: SliverChildBuilderDelegate(
-                  childCount: 100,
+                  childCount: catalogProvider.products.length,
                   (context, index) => Container(
                         height: 100,
                         color: Color.fromARGB(

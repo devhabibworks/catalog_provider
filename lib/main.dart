@@ -1,5 +1,7 @@
+import 'package:catalog_provider/provider/catalog_provider.dart';
 import 'package:catalog_provider/screen/catalog_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main(List<String> args) {
   runApp(const MyApp());
@@ -10,9 +12,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: CatalogScreen(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+            create: (context) => CatalogProvider()..getAllProducts()),
+      ],
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: CatalogScreen(),
+      ),
     );
   }
 }
