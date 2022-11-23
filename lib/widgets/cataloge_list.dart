@@ -11,7 +11,20 @@ class CatalogList extends StatelessWidget {
     CatalogProvider catalogProvider = Provider.of<CatalogProvider>(context);
 
     return ListTile(
+      contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+      leading: Container(
+        height: 50,
+        width: 50,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(19),
+            color: catalogProvider.products[index].color),
+      ),
       title: Text(catalogProvider.products[index].name ?? "no name"),
+      subtitle: Text("${catalogProvider.products[index].price}RY"),
+      trailing: TextButton(
+        onPressed: () {},
+        child: const Text("add"),
+      ),
     );
   }
 }
