@@ -1,3 +1,4 @@
+import 'package:catalog_provider/provider/cart_provider.dart';
 import 'package:catalog_provider/provider/catalog_provider.dart';
 import 'package:catalog_provider/screen/catalog_screen.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
             create: (context) => CatalogProvider()..getAllProducts()),
+        ChangeNotifierProvider(create: (context) => CartProvider())
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,

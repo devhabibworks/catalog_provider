@@ -19,4 +19,8 @@ class CartProvider with ChangeNotifier {
       notifyListeners();
     }
   }
+
+  bool checkIfProductOnCart(Product product) {
+    return _cartProducts.contains(product);
+  }
 }
