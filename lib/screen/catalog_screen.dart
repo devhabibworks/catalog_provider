@@ -13,16 +13,31 @@ class CatalogScreen extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          const SliverAppBar(
+          SliverAppBar(
             backgroundColor: Colors.yellow,
             floating: true,
-            title: Text(
+            title: const Text(
               "Catalog",
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 28,
                   fontWeight: FontWeight.w600),
             ),
+            actions: [
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, "cart");
+                },
+                child: const Padding(
+                  padding: EdgeInsets.all(16),
+                  child: Icon(
+                    Icons.shopping_cart,
+                    size: 28,
+                    color: Colors.black,
+                  ),
+                ),
+              )
+            ],
             centerTitle: true,
             //this is the most amazi
           ),

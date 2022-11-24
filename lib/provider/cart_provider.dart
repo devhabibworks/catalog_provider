@@ -23,4 +23,13 @@ class CartProvider with ChangeNotifier {
   bool checkIfProductOnCart(Product product) {
     return _cartProducts.contains(product);
   }
+
+  double getTotalPrice() {
+    double value = 0;
+    for (var product in _cartProducts) {
+      value += product.price;
+    }
+
+    return value;
+  }
 }
